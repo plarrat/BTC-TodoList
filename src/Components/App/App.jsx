@@ -17,6 +17,15 @@ function App() {
             <Col>
               <Titre text="Application TodoList" />
               <TodoList />
+              <TodoList />
+              <TodoList />
+              <TodoList />
+              <TodoList />
+              <TodoList />
+              <TodoList />
+              <TodoList />
+              <TodoList />
+              <TodoList />
             </Col>
           </Row>
         </Container>
