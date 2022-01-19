@@ -21,7 +21,7 @@ export default function TodoList() {
   }
 
   return (
-    <>
+    <div className="mb-4">
       <form
         onSubmit={e => {
           e.preventDefault()
@@ -47,6 +47,6 @@ export default function TodoList() {
           Tout supprimer
         </Button>
       )}
-    </>
+    </div>
   )
 }
