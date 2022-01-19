@@ -6,8 +6,8 @@ export default function TodoList(props) {
   const [inputTodo, setInputTodo] = useState('')
   const [todos, setTodos] = useState([])
 
-  let displayTodos = todos.map(item => {
-    return <ListGroup.Item>{item}</ListGroup.Item>
+  let displayTodos = todos.map((item, indice) => {
+    return <ListGroup.Item key={indice}>{item}</ListGroup.Item>
   })
 
   function add() {

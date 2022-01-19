@@ -8,9 +8,9 @@ function App() {
   const [liste, setListe] = useState([])
   const [search, setSearch] = useState('Va chercher')
 
-  let displayListe = liste.map(item => {
+  let displayListe = liste.map((item, indice) => {
     return (
-      <Col md={4}>
+      <Col md={4} key={indice}>
         <TodoList titre={item} />
       </Col>
     )
