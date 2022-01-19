@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 function App() {
   const [liste, setListe] = useState([])
-  const [search, setSearch] = useState('Va chercher')
+  const [search, setSearch] = useState('')
 
   let displayListe = liste.map((item, indice) => {
     return (
