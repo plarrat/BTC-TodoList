@@ -11,7 +11,7 @@ function App() {
   let displayListe = liste.map((item, indice) => {
     return (
       <Col md={4} key={indice}>
-        <TodoList titre={item} />
+        <TodoList titre={item} search={search} />
       </Col>
     )
   })
