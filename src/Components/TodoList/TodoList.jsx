@@ -9,7 +9,18 @@ export default function TodoList(props) {
   const search = props.search
 
   let displayTodos = todosFilter.map((item, indice) => {
-    return <ListGroup.Item key={indice}>{item}</ListGroup.Item>
+    return (
+      <ListGroup.Item key={indice}>
+        {item}
+        <Button
+          className="btn btn-sm float-end"
+          variant="outline-danger"
+          onClick={() => deleteTodo(item)}
+        >
+          Supprimer
+        </Button>
+      </ListGroup.Item>
+    )
   })
 
   useEffect(() => {
@@ -34,6 +45,15 @@ export default function TodoList(props) {
     setTodos(tmp)
     setInputTodo('')
     return null
+  }
+
+  function deleteTodo(todo) {
+    let tmp = [...todos]
+    let i = todos.indexOf(todo)
+    if (i > -1) {
+      tmp.splice(i, 1)
+      setTodos(tmp)
+    }
   }
 
   return (
