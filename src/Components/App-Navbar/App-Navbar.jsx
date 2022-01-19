@@ -7,7 +7,8 @@ import {
   Button,
 } from 'react-bootstrap'
 
-export default function AppNavbar() {
+export default function AppNavbar(props) {
+  const setSearch = props.setSearch
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -22,6 +23,10 @@ export default function AppNavbar() {
               type="search"
               placeholder="Rechercher une todo"
               className="me-2"
+              value={props.search}
+              onChange={e => {
+                setSearch(e.target.value)
+              }}
             />
             <Button variant="secondary">Rehercher</Button>
           </Form>

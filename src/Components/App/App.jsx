@@ -6,6 +6,7 @@ import { useState } from 'react'
 
 function App() {
   const [liste, setListe] = useState([])
+  const [search, setSearch] = useState('Va chercher')
 
   let displayListe = liste.map(item => {
     return (
@@ -27,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <header className="mb-5">
-        <AppNavbar></AppNavbar>
+        <AppNavbar search={search} setSearch={setSearch}></AppNavbar>
       </header>
 
       <main>
