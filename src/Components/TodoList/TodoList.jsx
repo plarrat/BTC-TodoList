@@ -1,7 +1,8 @@
 import { InputGroup, FormControl, Button, ListGroup } from 'react-bootstrap'
 import { useState } from 'react'
+import Titre from '../Titre/Titre'
 
-export default function TodoList() {
+export default function TodoList(props) {
   const [inputTodo, setInputTodo] = useState('')
   const [todos, setTodos] = useState([])
 
@@ -22,6 +23,7 @@ export default function TodoList() {
 
   return (
     <div className="mb-4">
+      <Titre text={props.titre} />
       <form
         onSubmit={e => {
           e.preventDefault()
