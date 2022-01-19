@@ -81,11 +81,11 @@ export default function TodoList(props) {
       <ListGroup variant="flush">{displayTodos}</ListGroup>
       {todos.length > 0 && (
         <Button
-          className="btn-sm"
-          variant="danger"
+          className="btn-sm float-start"
+          variant="outline-secondary"
           onClick={() => setTodos([])}
         >
-          Tout supprimer
+          Tout effacer
         </Button>
       )}
     </div>

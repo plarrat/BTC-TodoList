@@ -12,6 +12,15 @@ function App() {
     return (
       <Col md={4} key={indice}>
         <TodoList titre={item} search={search} />
+        <div className="d-grid gap-2 mt-5">
+          <Button
+            variant="outline-danger"
+            size="lg"
+            onClick={() => deleteListItem(indice)}
+          >
+            Supprimer la liste
+          </Button>
+        </div>
       </Col>
     )
   })
@@ -23,6 +32,12 @@ function App() {
       tmp.push(titre)
       setListe(tmp)
     }
+  }
+
+  function deleteListItem(i) {
+    let tmp = [...liste]
+    tmp.splice(i, 1)
+    setListe(tmp)
   }
 
   return (
