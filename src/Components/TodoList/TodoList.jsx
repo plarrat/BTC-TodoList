@@ -45,7 +45,11 @@ export default function TodoList(props) {
 
       <ListGroup variant="flush">{displayTodos}</ListGroup>
       {todos.length > 0 && (
-        <Button variant="danger" onClick={() => setTodos([])}>
+        <Button
+          className="btn-sm"
+          variant="danger"
+          onClick={() => setTodos([])}
+        >
           Tout supprimer
         </Button>
       )}
