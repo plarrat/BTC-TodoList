@@ -80,7 +80,11 @@ export default function TodoList(props) {
 
   return (
     <div className="mb-4">
-      <Titre text={titre} />
+      <Titre
+        text={titre}
+        nbAfficher={todosFilter.length}
+        nbTotal={todos.length}
+      />
       <form
         onSubmit={e => {
           e.preventDefault()
