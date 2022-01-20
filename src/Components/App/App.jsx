@@ -2,16 +2,22 @@ import './App.css'
 import AppNavbar from '../App-Navbar/App-Navbar'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import TodoList from '../TodoList/TodoList'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
   const [liste, setListe] = useState([])
   const [search, setSearch] = useState('')
 
-  let displayListe = liste.map((item, indice) => {
+  let displayListe = liste.map((todoInfos, indice) => {
+    const id = todoInfos.id
     return (
-      <Col md={4} key={indice}>
-        <TodoList titre={item} search={search} />
+      <Col md={4} key={'todo-' + id}>
+        <TodoList
+          todoInfos={todoInfos}
+          search={search}
+          liste={liste}
+          setListe={setListe}
+        />
         <div className="d-grid gap-2 mt-5">
           <Button
             variant="outline-danger"
@@ -29,7 +35,9 @@ function App() {
     let titre = window.prompt("Veuillez saisir l'intitulé de votre TodoList")
     if (titre !== null && titre.trim().length > 0) {
       let tmp = [...liste]
-      tmp.push(titre)
+      let id = Date.now()
+      let obj = { id, titre, todos: [] }
+      tmp.push(obj)
       setListe(tmp)
     }
   }

@@ -6,11 +6,17 @@ export default function TodoList(props) {
   const [inputTodo, setInputTodo] = useState('')
   const [todos, setTodos] = useState([])
   const [todosFilter, setTodosFilter] = useState([])
+
   const search = props.search
+  const todoInfos = props.todoInfos
+  const id = todoInfos.id
+  const titre = todoInfos.titre
+  const liste = props.liste
+  const setListe = props.setListe
 
   let displayTodos = todosFilter.map((item, indice) => {
     return (
-      <ListGroup.Item key={indice}>
+      <ListGroup.Item key={titre + '-todos-' + indice}>
         {item}
         <Button
           className="btn btn-sm float-end"
@@ -22,6 +28,22 @@ export default function TodoList(props) {
       </ListGroup.Item>
     )
   })
+
+  useEffect(() => {
+    let tmpListe = [...liste]
+    for (let i = 0; i < liste.length; i++) {
+      if (liste[i].id === id) {
+        let tmpObj = { ...liste[i] }
+        tmpObj.todos = [...todos]
+        tmpListe[i] = tmpObj
+        setListe(tmpListe)
+      }
+    }
+  }, [todos])
+
+  useEffect(() => {
+    setTodos(todoInfos.todos)
+  }, [])
 
   useEffect(() => {
     setTodosFilter(todos)
@@ -58,7 +80,7 @@ export default function TodoList(props) {
 
   return (
     <div className="mb-4">
-      <Titre text={props.titre} />
+      <Titre text={titre} />
       <form
         onSubmit={e => {
           e.preventDefault()
