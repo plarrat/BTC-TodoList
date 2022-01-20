@@ -48,6 +48,15 @@ function App() {
     setListe(tmp)
   }
 
+  useEffect(() => {
+    let datas = localStorage.getItem('btc-todoList')
+    setListe(JSON.parse(datas))
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('btc-todoList', JSON.stringify(liste))
+  }, [liste])
+
   return (
     <div className="App">
       <header className="mb-5">
